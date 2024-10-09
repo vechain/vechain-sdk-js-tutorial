@@ -1,0 +1,15 @@
+{
+  "name": "vechain-sdk-js-node-tutorial",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "VeChain Foundation",
+  "license": "MIT",
+  "description": "VeChain SDK NodeJS Tutorial",
+  "dependencies": {
+    "@vechain/sdk-network": "1.0.0-beta.32"
+  }
+}
