@@ -1,14 +1,21 @@
 {
-  "name": "vechain-sdk-js-node-tutorial",
+  "name": "vechain-sdk-js-tutorial",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "VeChain",
+    "blockchain",
+    "dapp",
+    "sdk",
+    "thor",
+    "web3"
+  ],
   "author": "VeChain Foundation",
   "license": "MIT",
-  "description": "VeChain SDK NodeJS Tutorial",
+  "description": "VeChain SDK Tutorial for NodeJS.",
   "dependencies": {
     "@vechain/sdk-network": "1.0.0-beta.32"
   }
