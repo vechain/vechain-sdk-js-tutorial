@@ -40,14 +40,14 @@ const set = [
  The VeChain Data Model provides a Bloom filter implementation provided by the `BloomFilter` class.
 
  The `BloomFilter.of(arg...) method accept zero, one or multiple elements to return a builder object
- of the `BloomBuilder` class. Additional elements can be added later.
+ of the `BloomFilterBuilder` class. Additional elements can be added later.
  */
 // STEP 1: create an empty container object to create a Bloom filter. Use `BloomFilter.of` method.
 const bloomBuilder = BloomFilter.of();
 
 
 /*
-  To create a Bloom Filter from the Bloom filter builder container object, call the `<BloomBuilder>.build()` method,
+  To create a Bloom Filter from the Bloom filter builder container object, call the `<BloomFilterBuilder>.build()` method,
   this method returns an immutable object of the `BloomFilter` class.
 
   The method accepts two additional parameters to set how many bits are used to encode the fact an element is part of
