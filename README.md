@@ -3,9 +3,9 @@
 
 _This tutorial is a work in progress._
 
-The goal of the tuturial is to teach how to develop a 'dapp' bases on Thor using the VeChain SDK for JS.
+The goal of the tuturial is to teach how to develop a 'dapp' based on Thor using the VeChain SDK for JS.
 
-The [src](src) directory provides a list of exercises with their solutions.
+The [src](src) directory provides a list of exercises with their solutions, so far
 
 * [Hello World!](src/Exercise1.ts)
 * [The Bloom filter.](src/Exercise2.ts)
