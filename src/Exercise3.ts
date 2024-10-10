@@ -82,41 +82,40 @@ let k = defaultBloomFilter.k;
   The `BloomFilter.computesBestBitPerKey` returns the best length of the key in bits. The key represents the element of
   the set in compact form as element of the filter.
  */
-// STEP 1: get the number of bits per key `k` hashing functions map.
 let m = BloomFilter.computeBestBitsPerKey(k);
 
 
-// STEP 2: print how many hashing functions were used to build the default Bloom filter and each key length in bits.
-console.log(`Default filter use k = ${k} hashing functions to map each element in m = ${m} bits per key.`);
+// STEP 1: print how many hashing functions were used to build the default Bloom filter and each key length in bits.
+// console.log(`Default filter use k = ${k} hashing functions to map each element in m = ${m} bits per key.`);
 
 
 /*
   Here we build a more compact Bloom filter imposing each key representing an element is only 4 bits long.
  */
 m = 4;
-// STEP 3: how many hashing functions are optimal to map the elements of a Bloom filter in `m` bits keys?
-k = BloomFilter.computeBestHashFunctionsQuantity(m);
+// STEP 2: how many hashing functions are optimal to map the elements of a Bloom filter in `m` bits keys?
+// k = BloomFilter.computeBestHashFunctionsQuantity(m);
 
 
-// STEP 5: build the more compact Bloom filter.
-const compactBloomFilter = BloomFilter.of(...set).build(k, m);
+// STEP 3: build the more compact Bloom filter.
+// const compactBloomFilter = BloomFilter.of(...set).build(k, m);
 
-// STEP 6: print the more `compactBloomFilter` content and its properties.
-console.log(`Compact filter is ${Hex.of(compactBloomFilter.bytes)}.`);
-console.log(`Compact filter is ${compactBloomFilter.bytes.length} bytes sized.`);
-console.log(`Compact filter use k = ${k} hashing functions to map each element in m = ${m} bits per key`);
+// STEP 4: print the more `compactBloomFilter` content and its properties.
+// console.log(`Compact filter is ${Hex.of(compactBloomFilter.bytes)}.`);
+// console.log(`Compact filter is ${compactBloomFilter.bytes.length} bytes sized.`);
+// console.log(`Compact filter use k = ${k} hashing functions to map each element in m = ${m} bits per key`);
 
-// STEP 6: prove each element of the `set` is represented in both filters,
-set.forEach((element, i) => {
-    const isInDefault = defaultBloomFilter.contains(element);
-    const isInCompact = compactBloomFilter.contains(element);
-    console.log(`#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
-});
+// STEP 5: prove each element of the `set` is represented in both filters,
+// set.forEach((element, i) => {
+//     const isInDefault = defaultBloomFilter.contains(element);
+//     const isInCompact = compactBloomFilter.contains(element);
+//     console.log(`#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
+// });
 
-// STEP 7: prove an `alien` element is not part of the originating `set` as not represented in both filters.
-const alien = Secp256k1.randomBytes(elementSize);
-const isInDefault = defaultBloomFilter.contains(alien);
-const isInCompact = compactBloomFilter.contains(alien);
-console.log(`Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
+// STEP 6: prove an `alien` element is not part of the originating `set` as not represented in both filters.
+// const alien = Secp256k1.randomBytes(elementSize);
+// const isInDefault = defaultBloomFilter.contains(alien);
+// const isInCompact = compactBloomFilter.contains(alien);
+// console.log(`Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
 
 
