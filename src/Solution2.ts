@@ -190,7 +190,7 @@ if (bloomFilter.isJoinable(additionalBloomFilter)) {
       The method `<BloomFilter>.join(other)` returns a new `BloomFilter` object representing the union of
       this `<BloomFilter>` and the `other` one.
 
-      Elements of both `set` and `aditionalSet` objects should result as likely part of the union Bloom filter.
+      Elements of both `set` and `additionalSet` objects should result as likely part of the union Bloom filter.
      */
     // STEP 15: for each element in both `set` and `additionalSet` print if it is part of their original Bloom filters and of the union of them.
     const unionBloomFilter = bloomFilter.join(additionalBloomFilter);
@@ -210,3 +210,32 @@ if (bloomFilter.isJoinable(additionalBloomFilter)) {
         console.log(`${element}\t\t${isInSet}\t${isInAdditionalSet}\t\t${isInUnionSet}`);
     });
 }
+
+
+/*
+  Finally, the method `BloomFilter.of` returns an object of the `BloomFilterBuilder` class,
+  this is a container where to add the elements represented by the Bloom filter.
+
+  But what if I have a Bloom filter, that is a byte of arrays, and the `k` or `m` parameters?
+  You should know at least one of the following
+  - `m`: number of bits per key, or
+  - 'k': number of hashing functions used to build the filter.
+
+  Those parameters are explained in the next exercise, however something is anticipated here, the
+  class `BloomFilter` exposes both the `.bytes` and `.k` properties hence having any object representing
+  them in some form, you can always build a new `BloomFilter` object using its class constructor.
+
+  If I have the `m` parameters `k = BloomFilter.computeBestHashFunctionsQuantity(m)`.
+
+  Supposing the `k` parameter is known and the bloom filter is a byte array, you can build a new `BloomFilter` object
+  with the `new` operator applied to its public Constructor.
+
+  ```
+  const k: number = ...
+  const bytes = Uint8Array.of(...)
+  const bloomFilter = new BloomFilter(bytes, k);
+  ```
+ */
+// STEP 16: clone the bloomFilter.
+const cloneFilter = new BloomFilter(bloomFilter.bytes, bloomFilter.k);
+console.log(`Original ${Hex.of(bloomFilter.bytes)}, clone ${Hex.of(cloneFilter.bytes)}.`);

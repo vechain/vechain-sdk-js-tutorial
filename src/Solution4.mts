@@ -26,6 +26,11 @@
     [elliptic curve](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)
     The Thor blockchain uses a specific standardized algorithm to implement the elliptic curve formula,
     this algorithm is named [SECP256K1](https://en.bitcoin.it/wiki/Secp256k1).
+
+    Later, in this tutorial will explain how the concept of user is related with the following two concepts.
+    - The **account** represents the assets of the user, on in other hands, what a user has.
+      Each account has one and only one user.
+    - the **wallet**
  */
 
 /*
