@@ -41,22 +41,22 @@ const elementSize = 8;
   The loop add `setSize` randomized value elements to `set`.
  */
 for(let i = 0; i < setSize; i++) {
-    /*
-      The class `Secp256k1` offers the method `Secp256k1.randomBytes` to get an array of randomized bytes
-      each array `elementSize` long.
+  /*
+    The class `Secp256k1` offers the method `Secp256k1.randomBytes` to get an array of randomized bytes
+    each array `elementSize` long.
 
-      `Secp256k1.randomBytes`provides a secure source of randomness, and it is based on code audited to be
-       cryptographically secure.
-       Every class and method provided by the VeChain Data Model relevant for cryptography is based on
-       secure audited code.
-       The documentation shows `Notes: Security auditable method, depends on...`
-       listing and linking the cryptographic sensitive functions used.
-       Following the links, the user is able to trace back to the audit certification and check
-       the algorithm chain inn the cryptographic method is secure.
-     */
-    const element = Secp256k1.randomBytes(elementSize);
-    console.log(`${i} -> ${Hex.of(element)}`);
-    set[i] = element;
+    `Secp256k1.randomBytes`provides a secure source of randomness, and it is based on code audited to be
+      cryptographically secure.
+      Every class and method provided by the VeChain Data Model relevant for cryptography is based on
+      secure audited code.
+      The documentation shows `Notes: Security auditable method, depends on...`
+      listing and linking the cryptographic sensitive functions used.
+      Following the links, the user is able to trace back to the audit certification and check
+      the algorithm chain inn the cryptographic method is secure.
+    */
+  const element = Secp256k1.randomBytes(elementSize);
+  console.log(`${i} -> ${Hex.of(element)}`);
+  set[i] = element;
 }
 
 /*
@@ -71,7 +71,6 @@ const defaultBloomFilter = BloomFilter.of(...set).build();
 console.log(`Default filter is ${Hex.of(defaultBloomFilter.bytes)}.`);
 console.log(`Default filter is ${defaultBloomFilter.bytes.length} bytes sized.`);
 
-
 /*
   The `<BloomFilter>,k property returns the number of hashing functions used to map the elements in the filter.
   This number is named `k` in math literature.
@@ -85,10 +84,8 @@ let k = defaultBloomFilter.k;
 // STEP 1: get the number of bits per key `k` hashing functions map.
 let m = BloomFilter.computeBestBitsPerKey(k);
 
-
 // STEP 2: print how many hashing functions were used to build the default Bloom filter and each key length in bits.
 console.log(`Default filter use k = ${k} hashing functions to map each element in m = ${m} bits per key.`);
-
 
 /*
   Here we build a more compact Bloom filter imposing each key representing an element is only 4 bits long.
@@ -96,7 +93,6 @@ console.log(`Default filter use k = ${k} hashing functions to map each element i
 m = 4;
 // STEP 3: how many hashing functions are optimal to map the elements of a Bloom filter in `m` bits keys?
 k = BloomFilter.computeBestHashFunctionsQuantity(m);
-
 
 // STEP 5: build the more compact Bloom filter.
 const compactBloomFilter = BloomFilter.of(...set).build(k, m);
@@ -108,9 +104,9 @@ console.log(`Compact filter use k = ${k} hashing functions to map each element i
 
 // STEP 6: prove each element of the `set` is represented in both filters,
 set.forEach((element, i) => {
-    const isInDefault = defaultBloomFilter.contains(element);
-    const isInCompact = compactBloomFilter.contains(element);
-    console.log(`#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
+  const isInDefault = defaultBloomFilter.contains(element);
+  const isInCompact = compactBloomFilter.contains(element);
+  console.log(`#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
 });
 
 // STEP 7: prove an `alien` element is not part of the originating `set` as not represented in both filters.
@@ -118,5 +114,3 @@ const alien = Secp256k1.randomBytes(elementSize);
 const isInDefault = defaultBloomFilter.contains(alien);
 const isInCompact = compactBloomFilter.contains(alien);
 console.log(`Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
-
-

@@ -1,25 +1,25 @@
 /*
- HELLO WORLD
+  HELLO WORLD
 
- This exercise honours the glorious tradition of the 'hello world' program presenting the VeChain Data Model
- to show how the data model helps to create objects and how to cast object between different types.
+  This exercise honours the glorious tradition of the 'hello world' program presenting the VeChain Data Model
+  to show how the data model helps to create objects and how to cast object between different types.
 
- JS represents strings according the [Unicode UTF-8](https://en.wikipedia.org/wiki/UTF-8) standard.
- For not-Latin alphabets and when combining glyphs there are more ways to show the same sign combining different
- sequences of bytes. This become relevant writing a content in languages using ideograms because those can be
- represented as single Unicode codepoint or as a sequence of Unicode codepoints combining the radical of the ideogram
- with additional glyph components.
+  JS represents strings according the [Unicode UTF-8](https://en.wikipedia.org/wiki/UTF-8) standard.
+  For not-Latin alphabets and when combining glyphs there are more ways to show the same sign combining different
+  sequences of bytes. This become relevant writing a content in languages using ideograms because those can be
+  represented as single Unicode codepoint or as a sequence of Unicode codepoints combining the radical of the ideogram
+  with additional glyph components.
 
- When string content is argument of encryption and signing, what is processed is the content represented as
- an array of bytes, but UTF-8 allows alternative representation of the same content as different arrays of bytes.
- Since the arrays are different, for the same content, different and incompatible encryption and signatures are
-possible if the JS runtime doesn't use the same encoding normalization algorithm.
+  When string content is argument of encryption and signing, what is processed is the content represented as
+  an array of bytes, but UTF-8 allows alternative representation of the same content as different arrays of bytes.
+  Since the arrays are different, for the same content, different and incompatible encryption and signatures are
+  possible if the JS runtime doesn't use the same encoding normalization algorithm.
 
-This exercise introduces the `Txt` class to represent content as a string, assuring it representation as byte array
-is consistent across JS runtimes, then it introduces the `Hex` class to get or parse a hexadecimal expression.
+  This exercise introduces the `Txt` class to represent content as a string, assuring it representation as byte array
+  is consistent across JS runtimes, then it introduces the `Hex` class to get or parse a hexadecimal expression.
 
-The exercise shows how to create objects of the types provided by the VeChain Data model and how to cast
-them from one type to a different one.
+  The exercise shows how to create objects of the types provided by the VeChain Data model and how to cast
+  them from one type to a different one.
  */
 
 // STEP 1: import the `Hex` and `Txt` classes from the VeChain SDK core module.
@@ -37,7 +37,6 @@ const hexFromDiacritic = strToHex(diacritic);
 console.log(`${canonical} => ${hexFromCanonical}`);
 console.log(`${diacritic} => ${hexFromDiacritic}`);
 
-
 // STEP 2: wrap `canonical `and `diacritic` strings in object of `Txt` class.
 /*
   For all the classes of the VeChain Data Model,
@@ -49,7 +48,6 @@ console.log(`${diacritic} => ${hexFromDiacritic}`);
 
 // const txtFromCanonical = Txt.of(canonical);
 // const txtFromDiacritic = Txt.of(diacritic);
-
 
 // STEP 3: Use `Hex` to represent the content of the `Txt` objects as hexadecimal expression.
 /*
@@ -73,7 +71,6 @@ console.log(`${diacritic} => ${hexFromDiacritic}`);
 
 // const hexFromTxtCanonical = Hex.of(txtFromCanonical.bytes);
 // const hexFromTxtDiacritic = Hex.of(txtFromDiacritic.bytes);
-
 
 // STEP 4: print the `Txt` objects and their hexadecimal representation.
 // The content of the strings is the same, their hexadecimal representation is the same
@@ -101,5 +98,5 @@ console.log(`${diacritic} => ${hexFromDiacritic}`);
  * @return {string} The hexadecimal representation of the input string.
  */
 function strToHex(str: string): string {
-    return '0x' + str.split('').map((char) => char.charCodeAt(0).toString(16).padStart(2, '0')).join('');
+  return '0x' + str.split('').map((char) => char.charCodeAt(0).toString(16).padStart(2, '0')).join('');
 }
