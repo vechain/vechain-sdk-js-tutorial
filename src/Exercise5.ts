@@ -1,4 +1,6 @@
 /*
+  USER'S KEYS AND ADDRESS FROM MNEMONIC WORDS (BIP39)
+
   The previous exercise showed how to create the private and public keys and the address of the user.
   The private key is an array of 32 bytes, often represented in hexadecimal form (hence 64 digits).
   The private key must be kept confidential, the blockchain infrastructure has not any knowledge of it,
