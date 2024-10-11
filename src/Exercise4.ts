@@ -26,11 +26,6 @@
     [elliptic curve](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)
     The Thor blockchain uses a specific standardized algorithm to implement the elliptic curve formula,
     this algorithm is named [SECP256K1](https://en.bitcoin.it/wiki/Secp256k1).
-
-    Later, in this tutorial will explain how the concept of user is related with the following two concepts.
-    - The **account** represents the assets of the user, on in other hands, what a user has.
-      Each account has one and only one user.
-    - the **wallet**
  */
 
 /*
@@ -54,9 +49,8 @@ import {Address, Hex, Secp256k1} from "@vechain/sdk-core";
   Note the method `Secp256k1.generatePrivateKey()` is asynchronous because te operation can be long in some JS runtimes.
  */
 // STEP 1: generate and print the private key calling `Secp256k1.generatePrivateKey()`.
-const privateKey = await Secp256k1.generatePrivateKey();
-console.log(`Private key is ${Hex.of(privateKey)}.`);
-
+// const privateKey = await Secp256k1.generatePrivateKey();
+// console.log(`Private key is ${Hex.of(privateKey)}.`);
 
 /*
   The private key is associated with its public key,
@@ -64,9 +58,8 @@ console.log(`Private key is ${Hex.of(privateKey)}.`);
   returns the public key associated with the private one.
  */
 // STEP 2: from the private key derive and print the associated public key.
-const publicKey = Secp256k1.derivePublicKey(privateKey);
-console.log(`Public key is ${Hex.of(publicKey)}.`);
-
+// const publicKey = Secp256k1.derivePublicKey(privateKey);
+// console.log(`Public key is ${Hex.of(publicKey)}.`);
 
 /*
   The elliptic curve formula associates the public key with an address.
@@ -76,9 +69,8 @@ console.log(`Public key is ${Hex.of(publicKey)}.`);
   and of the `VeChainDataModel` interface.
  */
 // STEP 3: get the address associated with the public key using the method `Address.ofPublicKey(publicKey)`.
-const address = Address.ofPublicKey(publicKey);
-console.log(`Address is ${address}.`);
-
+// const address = Address.ofPublicKey(publicKey);
+// console.log(`Address is ${address}.`);
 
 /*
   The address expresses a big natural number, hence its byte array content can be meant as a positive `bigint` type.
@@ -97,11 +89,12 @@ console.log(`Address is ${address}.`);
   The `hexLowCaseAddress` express the address using only lowercase digits: later, we will create a new
   `Address` object from `hexLowCaseAddress` and check of the `<VeChainDataModel>.isEqual(other)` methods
  */
-const hexLowCaseAddress = Address.ofPrivateKey(privateKey).toString().toString();
-// STEP 4: create an `Address` object from `hexLowCaseAddress` and check if it is equal to `address`.
-const hypothesis = Hex.of(hexLowCaseAddress);
-console.log(`Is ${address} Address object equal to the ${hypothesis} Hex object? ${address.isEqual(hypothesis)}.`);
+// STEP 4: get a lowercase hexadecimal expression of the user's address.
+// const hexLowCaseAddress = Address.ofPrivateKey(privateKey).toString().toString();
 
+// STEP 5: create an `Address` object from `hexLowCaseAddress` and check if it is equal to `address`.
+// const hypothesis = Hex.of(hexLowCaseAddress);
+// console.log(`Is ${address} Address object equal to the ${hypothesis} Hex object? ${address.isEqual(hypothesis)}.`);
 
 /*
   The private key is the most sensitive piece of information the user has.
@@ -112,12 +105,6 @@ console.log(`Is ${address} Address object equal to the ${hypothesis} Hex object?
 
   Call `privateKey.fill(0)` when no more needed.
  */
-// STEP 5: dispose the private key content.
-privateKey.fill(0);
-console.log(`Private key is ${Hex.of(privateKey)}.`);
-
-
-
-
-
-
+// STEP 6: dispose the private key content.
+// privateKey.fill(0);
+// console.log(`Private key is ${Hex.of(privateKey)}.`);

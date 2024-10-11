@@ -1,50 +1,49 @@
 /*
-THE BLOOM FILTER
+ THE BLOOM FILTER
 
-The [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter) is an array of bytes encoding a set of elements,
-hashing each element in bits of the Bloom filter marking if the element belongs to the set originated the filter.
+ The [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter) is an array of bytes encoding a set of elements,
+ hashing each element in bits of the Bloom filter marking if the element belongs to the set originated the filter.
 
-For any object, the Bloom filter tells if
-- the object probably belongs to the set (false positive is possible),
-- the object surely doesn't belong  to the set
-originated the filter.
+  For any object, the Bloom filter tells if
+  - the object probably belongs to the set (false positive is possible),
+  - the object surely doesn't belong  to the set
+  originated the filter.
 
-The advantage of the Bloom filter is to represent in a very compact form if some object is part of a data structure
-expensive to query.
+  The advantage of the Bloom filter is to represent in a very compact form if some object is part of a data structure
+  expensive to query.
  */
 
 /*
-    For this exercise, some classes must be imported from the VeChain SDK core module.
+  For this exercise, some classes must be imported from the VeChain SDK core module.
  */
 import {BloomFilter, Hex, Txt} from "@vechain/sdk-core";
 // STEP 12: import the class `InvalidDataType` from `@vechain/sdk-errors`.
 // import {InvalidDataType} from '@vechain/sdk-errors';
 
-
 /*
-   Here is defined a `set` of elements used make the Bloom Filter.
-   Later we will check if any of them, is part of the filters built in this exercise.
+  Here is defined a `set` of elements used make the Bloom Filter.
+  Later we will check if any of them, is part of the filters built in this exercise.
 
-   (The list is a subset of https://gist.github.com/fogleman/c4a1f69f34c7e8a00da8.)
+  (The list is a subset of https://gist.github.com/fogleman/c4a1f69f34c7e8a00da8.)
  */
 const set = [
-    Txt.of('acrobat'),
-    Txt.of('africa'),
-    Txt.of('alaska'),
-    Txt.of('albert'),
-    Txt.of('albino'),
-    Txt.of('album')
+  Txt.of('acrobat'),
+  Txt.of('africa'),
+  Txt.of('alaska'),
+  Txt.of('albert'),
+  Txt.of('albino'),
+  Txt.of('album')
 ];
 
 /*
- The VeChain Data Model provides a Bloom filter implementation provided by the `BloomFilter` class.
+  The VeChain Data Model provides a Bloom filter implementation provided by the `BloomFilter` class.
 
- The `BloomFilter.of(arg...) method accept zero, one or multiple elements to return a builder object
- of the `BloomFilterBuilder` class. Additional elements can be added later.
+  The `BloomFilter.of(arg...) method accept zero, one or multiple elements to return a builder object
+  of the `BloomFilterBuilder` class. Additional elements can be added later.
  */
+
 // STEP 1: create an empty container object to create a Bloom filter. Use `BloomFilter.of` method.
 // const bloomBuilder = BloomFilter.of();
-
 
 /*
   To create a Bloom Filter from the Bloom filter builder container object, call the `<BloomFilterBuilder>.build()` method,
@@ -56,9 +55,9 @@ const set = [
   Bloom filter. The method `build()` estimates the proper number of bits and hashing functions from the number
   of elements added in the Bloom filter builder container object.
  */
+
 // STEP 2: build an empty `BloomFilter` object.
 // const emptyBloomFilter = bloomBuilder.build();
-
 
 /*
   The method `BloomFilter.of` accepts a variable list og arguments according the
@@ -69,9 +68,9 @@ const set = [
   of the element; the arguments can be objects of the `Hex` class because the `Hex` class because
   the `Hex` class is a convenient way to express array of bytes.
  */
+
 // STEP 3: build a Bloom filter adding all the elements of the `set`. Use `of` with the spread syntax, then `build`.
 // const bloomFilter = BloomFilter.of(...set.map((element) => element.bytes)).build();
-
 
 /*
   The `key` object is used to query the Bloom filter if it is part of its originating `set`. (Yes it is.)
@@ -88,26 +87,24 @@ const key = set[0];
   - `false` if surely hasn't been part of such set.
   The key can be an object of either the `Hex` or `Uint8Array` class.
  */
+
 // STEP 4: print if `key` is part of the `bloomFilter`, use the `contains` method.
 // console.log(`Is "${key}" in ${Hex.of(bloomFilter.bytes)} filter made from bytes?`);
 // console.log(`${bloomFilter.contains(key.bytes)}`);
-
 
 // STEP 5: print if `key` is part of the empty Bloom filter appropriately named `emptyBloomFilter` above.
 // console.log(`Is "${key}" in ${Hex.of(emptyBloomFilter.bytes)} empty filter?`);
 // console.log(`${emptyBloomFilter.contains(key.bytes)}`);
 
-
 /*
-   Elements can be added to the Bloom filter container builder as objects of the `Hex` class since
-   this class is a handy way to express array of bytes.
+  Elements can be added to the Bloom filter container builder as objects of the `Hex` class since
+  this class is a handy way to express array of bytes.
  */
 // STEP 6: add `set` elements to the `bloomBuilder` conntainer mapping the set's elements as `Hex` instances, then build the filter.
 // set.forEach((element) => {
 //     bloomBuilder.add(Hex.of(element.bytes))
 // })
 // const hexBloomFilter = bloomBuilder.build();
-
 
 // STEP 7: print of the `key` is part of the Bloom filter made from hexadecimal expression.
 // console.log(`Is "${key}" in ${Hex.of(hexBloomFilter.bytes)} filter made from hex?`);
@@ -120,10 +117,10 @@ const key = set[0];
   Being objects of the class `BloomFilter` implementing the `VeChainDataModel` interface, the method
   `isEqual` can be called to check if the two objects are equal. (Indeed, they are equal.)
  */
+
 // STEP 8: prove `bloomBuilder` is equal to `hexBloomFilter`.
 // console.log(`Is bloomBuilder equal to hexBloomFilter?`);
 // console.log(bloomFilter.isEqual(hexBloomFilter));
-
 
 /*
    Being objects of the VeChain Data Model, the Bloom filters made in this exercise provides the
@@ -135,15 +132,14 @@ const key = set[0];
 // console.log(`Cast to bigint: is ${bloomFilter.bi} === ${hexBloomFilter.bi}?`);
 // console.log(bloomFilter.bi === hexBloomFilter.bi);
 
-
 /*
   Instances of classes provided by the VeChain Data Model provide the `.n` property to cast its content to the
   JS `number` type. This is not at all meaningful for a Bloom filter, because it is an array of bytes,
   however since the `BloomFilter` class implements the `VeChainDataModel` interface, an empty Bloom filter cast to zero.
  */
+
 // STEP 10: what is the value of an empty Bloom filter as `number` value?
 // console.log(`Cast emptyBloomFilter as a number = ${emptyBloomFilter.n}.`);
-
 
 /*
   Most of the time, a `BloomFilter` object represents an array of bytes not interpretable as a JS `number` type.
@@ -157,7 +153,6 @@ const key = set[0];
 //     const invalidDataType = error as InvalidDataType;
 //     console.error(`Cast arrayBloomFilter as a number throws "${invalidDataType.errorMessage}"!`);
 // }
-
 
 /*
   The `additionalSet` object is used to show how to join Bloom filters below.
@@ -183,6 +178,7 @@ const additionalBloomFilter = BloomFilter.of(
 
   The method `isJoinable` checks if two `BloomFilter` objects are compatible to be joined.
  */
+
 // STEP 14: can `additionalBloomFilter` join `bloomFilter` to make a filter representing the union of the sets originated the two filters? (Yes, in this case.)
 // if (bloomFilter.isJoinable(additionalBloomFilter)) {
 //     /*
@@ -234,7 +230,7 @@ const additionalBloomFilter = BloomFilter.of(
   const bloomFilter = new BloomFilter(bytes, k);
   ```
  */
+
 // STEP 16: clone the bloomFilter.
 // const cloneFilter = new BloomFilter(bloomFilter.bytes, bloomFilter.k);
 // console.log(`Original ${Hex.of(bloomFilter.bytes)}, clone ${Hex.of(cloneFilter.bytes)}.`);
-
