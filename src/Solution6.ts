@@ -78,6 +78,18 @@ const crecheSize = 3;
 // STEP 2: call `deriveChildren` to derive `crecheSize` per key until the tree od derived keys is `maxDepth` thick.
 deriveChildrenKeys(master, 'm', maxDepth, crecheSize);
 
+/*
+  After use to authenticate the software to manage wallets and accounts,
+  the master key should be dispose`d as soon as possible.
+ */
+// STEP 3: destroy the content of the master after use.
+master.wipePrivateData()
+try {
+    console.log(`Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`);
+} catch (error) {
+    console.log('The master is gone.');
+}
+
 /**
  * This method derives children keys from a given parent key up to a specified depth and size.
  *
