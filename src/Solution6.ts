@@ -103,7 +103,7 @@ function deriveChildrenKeys(parent: HDKey, parentPath: string, maxDepth: number,
     for(let i = 0; i < crecheSize; i ++) {
         const child = parent.deriveChild(i);
         const path = `${parentPath}/${child.index}`;
-        console.log(`child at path ${path} private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`);
+        console.log(`Child at "${path}": private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`);
         if (child.depth < maxDepth) {
             deriveChildrenKeys(child, path, maxDepth, crecheSize);
         }
