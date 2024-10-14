@@ -7,15 +7,18 @@ The goal of the tutorial is to teach how to develop a 'dapp' based on Thor using
 
 The [src](src) directory provides a list of lessons with exercises and solutions, so far
 
-* [Hello World!](src/1.Hello_World/HelloWord.md)
-* [The Bloom filter.](src/2.Bloom_Filter/BloomFilterPart1)
-* [The Bloom filter: advanced topics on `k` and `m` parameters.](src/2.Bloom_Filter/BloomFilterPart2.md) 
-* [User's keys and address.](src/Solution4.mts)
+1.
+   * [Hello World!](src/1.Hello_World/HelloWord.md)
+2.
+   * [The Bloom filter.](src/2.Bloom_Filter/BloomFilterPart1.md)
+   * [The Bloom filter: advanced topics on `k` and `m` parameters.](src/2.Bloom_Filter/BloomFilterPart2.md)
+3.
+   * [User's keys and address.](src/3.Keys_Addresses_Wallets/Keys.md)
 * [User's keys and address from mnemonic words - BIP39.](src/Solution5.ts)
 * [One key to rule them all - BIP32.](src/Solution6.ts)
 
-The exercises have explanations between `/* remarks */` then a number of ` // STEP <n>: ` ask and suggest what to do.
-Below each step, a proposed solutions is marked out as `//` remarks, if you wish remove the remarks and poke the code to play.
+The lessons show snippet of code beginning with the remarks starting with `// STEP <n>: `, 
+those refer to the complete code in the file haning the same name of the file of the lesson with the suffix `.ts` or `.mts`
 
 ## License
 

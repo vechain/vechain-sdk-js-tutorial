@@ -1,6 +1,6 @@
 ## Lesson 2 - Part 1
 
-# The Bloom Filter
+# The Bloom Filter.
 
 The [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter) is an array of bytes encoding a set of elements,
 hashing each element in bits of the Bloom filter marking if the element belongs to the set originated the filter.

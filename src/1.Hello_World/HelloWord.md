@@ -1,6 +1,6 @@
 ## Lesson 1
 
-# Hello World
+# Hello World!
 
 This exercise honours the glorious tradition of the 'hello world' program presenting the VeChain Data Model
 to show how the data model helps to create objects and how to cast object between different types.

@@ -1,6 +1,6 @@
 ## Lesson 2 - Part 2
 
-# The Bloom Filter - Advanced topic on K and M parameters
+# The Bloom Filter: advanced topic on K and M parameters.
 
 This exercise is optional, it covers the parameters
 - m: number of bits per key used to represent an element in the Bloom filter, and
