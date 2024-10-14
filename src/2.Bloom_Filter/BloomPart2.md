@@ -2,7 +2,7 @@
 
 # The Bloom Filter: advanced topic on K and M parameters.
 
-This exercise is optional, it covers the parameters
+This lesson is optional, it covers the parameters
 - m: number of bits per key used to represent an element in the Bloom filter, and
 - k: number of hashing functions used to build the Bloom filter.
 
@@ -15,7 +15,7 @@ The purpose of the Bloom Filter is to map in a compat array if any element is pa
 This example builds a `set` of `setSites` element, the elements have a random value of `elementSize` bytes.
 For an element size of 8 bytes, the `set` for 1024 elements is 8 KiB long.
 
-We import of the classes used in this exercise provided by the VeChain SDK core module, then we define the `set`,
+We import of the classes used in this lesson provided by the VeChain SDK core module, then we define the `set`,
 its set size and the size in bits of the key representing the element in the Bloom filter.
 
 The class `Secp256k1` offers the method `Secp256k1.randomBytes` to get an array of randomized bytes
@@ -51,7 +51,7 @@ for(let i = 0; i < setSize; i++) {
     set[i] = element;
 }
 
-// You already know how to create a Bloom filter from `set` because a previous exercise.
+// You already know how to create a Bloom filter from `set` because a previous lesson.
 const defaultBloomFilter = BloomFilter.of(...set).build();
 
 // Show the content and the length of the `defaultBloomFilter`.
