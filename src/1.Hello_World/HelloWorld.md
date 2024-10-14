@@ -113,3 +113,6 @@ hence it is sufficient to wrap the `.bytes` property
 console.log(`${Hex.of(txtFromDiacritic.bytes)} => ${Txt.of(txtFromDiacritic.bytes)}`);
 ```
 
+---
+
+[HelloWorld.ts](HelloWorld.ts)

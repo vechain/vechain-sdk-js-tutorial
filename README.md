@@ -8,7 +8,7 @@ The goal of the tutorial is to teach how to develop a 'dapp' based on Thor using
 The [src](src) directory provides a list of lessons with exercises and solutions, so far
 
 1.
-   * [Hello World!](src/1.Hello_World/HelloWord.md)
+   * [Hello World!](src/1.Hello_World/HelloWorld)
 2.
    * [The Bloom filter.](src/2.Bloom_Filter/BloomPart1)
    * [The Bloom filter: advanced topics on `k` and `m` parameters.](src/2.Bloom_Filter/BloomPart2)

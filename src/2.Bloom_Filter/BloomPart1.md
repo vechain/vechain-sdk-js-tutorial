@@ -249,3 +249,7 @@ with the `new` operator applied to its public Constructor.
 const cloneFilter = new BloomFilter(bloomFilter.bytes, bloomFilter.k);
 console.log(`Original ${Hex.of(bloomFilter.bytes)}, clone ${Hex.of(cloneFilter.bytes)}.`);
 ```
+
+---
+
+[BloomPart1.ts](BloomPart1.ts)

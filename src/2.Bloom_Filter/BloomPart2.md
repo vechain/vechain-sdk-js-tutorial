@@ -111,3 +111,7 @@ const isInDefault = defaultBloomFilter.contains(alien);
 const isInCompact = compactBloomFilter.contains(alien);
 console.log(`Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
 ```
+
+---
+
+[BloomPart2.ts](BloomPart2.ts)

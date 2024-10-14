@@ -52,3 +52,7 @@ const address = Address.ofPublicKey(publicKey);
 console.log(`The user who remembers "${words}" words has the ${address} address and its associated keys.`);
 privateKey.fill(0);
 ```
+
+---
+
+[BIP39.ts](BIP39.ts)

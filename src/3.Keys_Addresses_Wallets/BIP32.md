@@ -109,3 +109,7 @@ try {
     console.log('The master is gone.');
 }
 ```
+
+---
+
+[BIP32.ts](BIP32.ts)
