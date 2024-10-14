@@ -1,5 +1,5 @@
 // START_SNIPPET BloomPart2__Step0
-import {BloomFilter, Hex, Secp256k1} from "@vechain/sdk-core";
+import { BloomFilter, Hex, Secp256k1 } from '@vechain/sdk-core';
 
 // This is the set of the elements will be represented by two Bloom filters of different size,
 // albeit both smaller than `set`.
@@ -14,10 +14,10 @@ const setSize = 1024;
 const elementKeySize = 8;
 
 //  The loop add `setSize` randomized value elements to `set`.
-for(let i = 0; i < setSize; i++) {
-  const element = Secp256k1.randomBytes(elementKeySize);
-  console.log(`${i} -> ${Hex.of(element)}`);
-  set[i] = element;
+for (let i = 0; i < setSize; i++) {
+    const element = Secp256k1.randomBytes(elementKeySize);
+    console.log(`${i} -> ${Hex.of(element)}`);
+    set[i] = element;
 }
 
 // You already know how to create a Bloom filter from `set` because a previous exercise.
@@ -26,7 +26,9 @@ const defaultBloomFilter = BloomFilter.of(...set).build();
 // Show the content and the length of the `defaultBloomFilter`.
 // Note the Bloom filter is much lighter than `set`, for a key size of 8 bits, the filter is 1 KiB size.
 console.log(`Default filter is ${Hex.of(defaultBloomFilter.bytes)}.`);
-console.log(`Default filter is ${defaultBloomFilter.bytes.length} bytes sized.`);
+console.log(
+    `Default filter is ${defaultBloomFilter.bytes.length} bytes sized.`
+);
 
 /*
   The `<BloomFilter>,k property returns the number of hashing functions used to map the elements in the filter.
@@ -39,10 +41,11 @@ let k = defaultBloomFilter.k;
 // START_SNIPPET BloomPart2__Step1
 // STEP 1: get the number of bits per key `k` hashing functions map.
 let m = BloomFilter.computeBestBitsPerKey(k);
-console.log(`Default filter use k = ${k} hashing functions to map each element in m = ${m} bits per key.`);
+console.log(
+    `Default filter use k = ${k} hashing functions to map each element in m = ${m} bits per key.`
+);
 
 // END_SNIPPET BloomPart2__Step1
-
 
 // START_SNIPPET BloomPart2__Step2
 // STEP 2: how many hashing functions are optimal to map the elements of a Bloom filter in `m` = 4 bits keys?
@@ -60,17 +63,23 @@ const compactBloomFilter = BloomFilter.of(...set).build(k, m);
 // START_SNIPPET BloomPart2__Step4
 // STEP 4: print the more `compactBloomFilter` content and its properties.
 console.log(`Compact filter is ${Hex.of(compactBloomFilter.bytes)}.`);
-console.log(`Compact filter is ${compactBloomFilter.bytes.length} bytes sized.`);
-console.log(`Compact filter use k = ${k} hashing functions to map each element in m = ${m} bits per key`);
+console.log(
+    `Compact filter is ${compactBloomFilter.bytes.length} bytes sized.`
+);
+console.log(
+    `Compact filter use k = ${k} hashing functions to map each element in m = ${m} bits per key`
+);
 
 // END_SNIPPET BloomPart2__Step4
 
 // START_SNIPPET BloomPart2__Step5
 // STEP 5: prove each element of the `set` is represented in both filters,
 set.forEach((element, i) => {
-  const isInDefault = defaultBloomFilter.contains(element);
-  const isInCompact = compactBloomFilter.contains(element);
-  console.log(`#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
+    const isInDefault = defaultBloomFilter.contains(element);
+    const isInCompact = compactBloomFilter.contains(element);
+    console.log(
+        `#[${i}]\tElement ${Hex.of(element)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`
+    );
 });
 
 // END_SNIPPET BloomPart2__Step5
@@ -80,6 +89,8 @@ set.forEach((element, i) => {
 const alien = Secp256k1.randomBytes(elementKeySize);
 const isInDefault = defaultBloomFilter.contains(alien);
 const isInCompact = compactBloomFilter.contains(alien);
-console.log(`Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`);
+console.log(
+    `Alien ${Hex.of(alien)} is in default filter: ${isInDefault}, in compact filter: ${isInCompact}.`
+);
 
 // END_SNIPPET BloomPart2__Step6

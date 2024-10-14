@@ -1,6 +1,6 @@
 // START_SNIPPET: BIP32_Step0
 // Recalling the previous lesson, create mnemonic words as alias of the private key.
-import {HDKey, Hex, Mnemonic} from "@vechain/sdk-core";
+import { HDKey, Hex, Mnemonic } from '@vechain/sdk-core';
 
 const words = Mnemonic.of();
 console.log(`Memorable words [${words}]`);
@@ -10,7 +10,9 @@ console.log(`Memorable words [${words}]`);
 // START_SNIPPET: BIP32_Step1
 // STEP 1: create the master key pair from mnemonic `words.
 const master = HDKey.fromMnemonic(words);
-console.log(`Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`);
+console.log(
+    `Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`
+);
 
 // END_SNIPPET: BIP32_Step1
 
@@ -30,18 +32,18 @@ deriveChildrenKeys(master, 'm', maxDepth, crecheSize);
 
 // END_SNIPPET: BIP32_Step2
 
-
 // START_SNIPPET: BIP32_Step3
 // STEP 3: destroy the content of the master after use.
-master.wipePrivateData()
+master.wipePrivateData();
 try {
-    console.log(`Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`);
+    console.log(
+        `Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`
+    );
 } catch (error) {
-    console.log('The master is gone.');
+    console.log('The master is gone. Error: ', error);
 }
 
 // END_SNIPPET: BIP32_Step3
-
 
 // START_SNIPPET: BIP32_deriveChildrenKeys
 /**
@@ -53,11 +55,18 @@ try {
  * @param {number} crecheSize - The number of children keys to derive at each level.
  * @return {void} No return value.
  */
-function deriveChildrenKeys(parent: HDKey, parentPath: string, maxDepth: number, crecheSize: number) {
-    for(let i = 0; i < crecheSize; i ++) {
+function deriveChildrenKeys(
+    parent: HDKey,
+    parentPath: string,
+    maxDepth: number,
+    crecheSize: number
+): void {
+    for (let i = 0; i < crecheSize; i++) {
         const child = parent.deriveChild(i);
         const path = `${parentPath}/${child.index}`;
-        console.log(`Child at "${path}": private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`);
+        console.log(
+            `Child at "${path}": private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`
+        );
         if (child.depth < maxDepth) {
             deriveChildrenKeys(child, path, maxDepth, crecheSize);
         }
@@ -65,5 +74,3 @@ function deriveChildrenKeys(parent: HDKey, parentPath: string, maxDepth: number,
 }
 
 // END_SNIPPET: BIP32_deriveChildrenKeys
-
-

@@ -1,11 +1,13 @@
 // START_SNIPPET: HelloWorld_Step_1
 
 // STEP 1: import the `Hex` and `Txt` classes from the VeChain SDK core module.
-import { Hex, Txt } from "@vechain/sdk-core";
+import { Hex, Txt } from '@vechain/sdk-core';
 
 // "χαίρε κόσμε", read as "kaire cosme", means "hello world" in classic Greek.
-const canonical = '\u03c7\u03b1\u03af\u03c1\u03b5\u0020\u03ba\u03cc\u03c3\u03bc\u03b5';
-const diacritic = '\u03c7\u03b1\u03B9\u0301\u03c1\u03b5\u0020\u03ba\u03bf\u0301\u03c3\u03bc\u03b5';
+const canonical =
+    '\u03c7\u03b1\u03af\u03c1\u03b5\u0020\u03ba\u03cc\u03c3\u03bc\u03b5';
+const diacritic =
+    '\u03c7\u03b1\u03B9\u0301\u03c1\u03b5\u0020\u03ba\u03bf\u0301\u03c3\u03bc\u03b5';
 
 // Get the hexadecimal representation of `canonical` and `diacritic` strings.
 const hexFromCanonical = strToHex(canonical);
@@ -49,7 +51,9 @@ console.log(`${txtFromDiacritic} => ${hexFromTxtDiacritic}`);
 // START_SNIPPET: HelloWorld_Step_5
 
 // STEP 5: Show from the array of bytes, one gets the same string.
-console.log(`${Hex.of(txtFromDiacritic.bytes)} => ${Txt.of(txtFromDiacritic.bytes)}`);
+console.log(
+    `${Hex.of(txtFromDiacritic.bytes)} => ${Txt.of(txtFromDiacritic.bytes)}`
+);
 
 // END_SNIPPET: HelloWorld_Step_5
 
@@ -62,7 +66,13 @@ console.log(`${Hex.of(txtFromDiacritic.bytes)} => ${Txt.of(txtFromDiacritic.byte
  * @return {string} The hexadecimal representation of the input string.
  */
 function strToHex(str: string): string {
-    return '0x' + str.split('').map((char) => char.charCodeAt(0).toString(16).padStart(2, '0')).join('');
+    return (
+        '0x' +
+        str
+            .split('')
+            .map((char) => char.charCodeAt(0).toString(16).padStart(2, '0'))
+            .join('')
+    );
 }
 
 // END_SNIPPET: HelloWorld_strToHex

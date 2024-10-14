@@ -38,7 +38,7 @@ the user having its 'Hierarchical Deterministic Key'.
   Recalling the previous exercises, a master private key is generated using
  */
 
-import {HDKey, Hex, Mnemonic} from "@vechain/sdk-core";
+import { HDKey, Hex, Mnemonic } from '@vechain/sdk-core';
 
 const words = Mnemonic.of();
 console.log(`Memorable words [${words}]`);
@@ -51,7 +51,9 @@ console.log(`Memorable words [${words}]`);
  */
 // STEP 1: create the master key pair from mnemonic `words.
 const master = HDKey.fromMnemonic(words);
-console.log(`Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`);
+console.log(
+    `Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`
+);
 
 /*
   From any `HDKey` instance, master included of course, an array of children keys can be derived,
@@ -83,11 +85,13 @@ deriveChildrenKeys(master, 'm', maxDepth, crecheSize);
   the master key should be dispose`d as soon as possible.
  */
 // STEP 3: destroy the content of the master after use.
-master.wipePrivateData()
+master.wipePrivateData();
 try {
-    console.log(`Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`);
+    console.log(
+        `Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`
+    );
 } catch (error) {
-    console.log('The master is gone.');
+    console.log('The master is gone. Error: ', error);
 }
 
 /**
@@ -99,15 +103,20 @@ try {
  * @param {number} crecheSize - The number of children keys to derive at each level.
  * @return {void} No return value.
  */
-function deriveChildrenKeys(parent: HDKey, parentPath: string, maxDepth: number, crecheSize: number) {
-    for(let i = 0; i < crecheSize; i ++) {
+function deriveChildrenKeys(
+    parent: HDKey,
+    parentPath: string,
+    maxDepth: number,
+    crecheSize: number
+): void {
+    for (let i = 0; i < crecheSize; i++) {
         const child = parent.deriveChild(i);
         const path = `${parentPath}/${child.index}`;
-        console.log(`Child at "${path}": private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`);
+        console.log(
+            `Child at "${path}": private ${Hex.of(child.privateKey)} and public ${Hex.of(child.publicKey)} keys.`
+        );
         if (child.depth < maxDepth) {
             deriveChildrenKeys(child, path, maxDepth, crecheSize);
         }
     }
 }
-
-
