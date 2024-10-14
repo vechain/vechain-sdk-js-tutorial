@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ."
   },
   "keywords": [
     "VeChain",
     "blockchain",
-    "dapp",
-    "sdk",
+    "dApp",
+    "SDK",
     "thor",
     "web3"
   ],
@@ -18,5 +18,12 @@
   "description": "VeChain SDK Tutorial for NodeJS.",
   "dependencies": {
     "@vechain/sdk-network": "1.0.0-beta.32"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "typescript-eslint": "^8.8.1",
+    "typescript": "^5.6.3"
   }
 }
