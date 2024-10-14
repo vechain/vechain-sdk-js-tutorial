@@ -12,7 +12,7 @@ Since 64 digits are hard to remember, the
 specification introduced a way to relate content of the private key to a list of memorable words,
 these 'mnemonic' words are an alias of the private keys and those should be kept confidential.
 
-This exercise shows how to get a random list of 'mnemonic' words for a user and how to derive
+This lesson shows how to get a random list of 'mnemonic' words for a user and how to derive
 the private, public and address of the user from the 'mnemonic' words/
 
 The class `Mnemonic` provides the **BIP39** specifications.

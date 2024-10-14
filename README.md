@@ -15,7 +15,7 @@ The [src](src) directory provides a list of lessons with exercises and solutions
 3.
    * [User's keys and address.](src/3.Keys_Addresses_Wallets/Keys.md)
    * [User's keys and address from mnemonic words - BIP39.](src/3.Keys_Addresses_Wallets/BIP39.md)
-* [One key to rule them all - BIP32.](src/Solution6.ts)
+   * [One key to rule them all: hierarchic deterministic keys and wallets - BIP32.](src/3.Keys_Addresses_Wallets/BIP32.md)
 
 The lessons show snippet of code beginning with the remarks starting with `// STEP <n>: `, 
 those refer to the complete code in the file haning the same name of the file of the lesson with the suffix `.ts` or `.mts`
