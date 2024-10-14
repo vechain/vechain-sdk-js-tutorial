@@ -1,6 +1,6 @@
-## Lesson 3
+## Lesson 3 - Part 1
 
-# User's Keys and Addresses.
+# User's keys and address.
 
 This SDK is used to let a JS/TS client to interact with the
 [VeChain Thor](https://github.com/vechain/thor) blockchain.

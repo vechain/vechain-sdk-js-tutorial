@@ -17,10 +17,10 @@ Since the arrays are different, for the same content, different and incompatible
 possible if the JS runtime doesn't use the same encoding normalization algorithm.
 
 
-This exercise introduces the `Txt` class to represent content as a string, assuring it representation as byte array
+This lesson introduces the `Txt` class to represent content as a string, assuring it representation as byte array
 is consistent across JS runtimes, then it introduces the `Hex` class to get or parse a hexadecimal expression.
 
-The exercise shows how to create objects of the types provided by the VeChain Data model and how to cast
+The lesson shows how to create objects of the types provided by the VeChain Data model and how to cast
 them from one type to a different one.
 
 ```typescript

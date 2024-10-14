@@ -13,10 +13,10 @@ For any object, the Bloom filter tells if
 The advantage of the Bloom filter is to represent in a very compact form if some object is part of a data structure
 expensive to query.
 
-For this exercise, some classes must be imported from the VeChain SDK core module.
+For this lesson, some classes must be imported from the VeChain SDK core module.
 
 To show how he Bloom Filter we have to define a `set` of elements used make the Bloom Filter.
-Later we will check if any of them, is part of the filters built in this exercise.
+Later we will check if any of them, is part of the filters built in this lesson.
 
 (The list is a subset of https://gist.github.com/fogleman/c4a1f69f34c7e8a00da8.)
 
@@ -54,7 +54,7 @@ this method returns an immutable object of the `BloomFilter` class.
 
 The method accepts two additional parameters to set how many bits are used to encode the fact an element is part of
 the Bloom filter array and how many hashing functions are used to do this. These parameters are explained
-in next exercise, those depend on the number of elements the originating set and the wished size of the resulting
+in next lesson, those depend on the number of elements the originating set and the wished size of the resulting
 Bloom filter. The method `build()` estimates the proper number of bits and hashing functions from the number
 of elements added in the Bloom filter builder container object.
 
@@ -128,7 +128,7 @@ console.log(`Is bloomBuilder equal to hexBloomFilter?`);
 console.log(bloomFilter.isEqual(hexBloomFilter));
 ```
 
-Being objects of the VeChain Data Model, the Bloom filters made in this exercise provides the
+Being objects of the VeChain Data Model, the Bloom filters made in this lesson provides the
 `.bi` property to represent the array of bytes as JS `bigint` expression.
 
 An array of bytes can be always represented as a `bigint` expression.
@@ -229,7 +229,7 @@ You should know at least one of the following
 - `m`: number of bits per key, or
 - 'k': number of hashing functions used to build the filter.
 
-Those parameters are explained in the next exercise, however something is anticipated here, the
+Those parameters are explained in the next lesson, however something is anticipated here, the
 class `BloomFilter` exposes both the `.bytes` and `.k` properties hence having any object representing
 them in some form, you can always build a new `BloomFilter` object using its class constructor.
 
