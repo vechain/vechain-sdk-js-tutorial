@@ -1,4 +1,4 @@
-## Lesson 2
+## Lesson 2 - Part 1
 
 # The Bloom Filter
 
