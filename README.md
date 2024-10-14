@@ -8,7 +8,7 @@ The goal of the tutorial is to teach how to develop a 'dapp' based on Thor using
 The [src](src) directory provides a list of exercises with their solutions, so far
 
 * [Hello World!](src/1.Hello_World/HelloWord.md)
-* [The Bloom filter.](src/Solution2.ts)
+* [The Bloom filter.](src/2.Bloom_Filter/BloomFilter.md)
 * [The Bloom filter: advanced topics on `k` and `m` parameters.](src/Solution3.ts) 
 * [User's keys and address.](src/Solution4.mts)
 * [User's keys and address from mnemonic words - BIP39.](src/Solution5.ts)
