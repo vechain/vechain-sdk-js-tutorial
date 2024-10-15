@@ -40,7 +40,7 @@ try {
         `Master private ${Hex.of(master.privateKey)} and public ${Hex.of(master.publicKey)} keys.`
     );
 } catch (error) {
-    console.log('The master is gone. Error: ', error);
+    console.log('The master is gone. Error: ', error.message);
 }
 
 // END_SNIPPET: BIP32_Step3
