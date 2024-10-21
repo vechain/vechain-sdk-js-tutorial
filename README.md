@@ -24,3 +24,7 @@ those refer to the complete code in the file haning the same name of the file of
 
 This project is licensed under the [MIT license](LICENSE.md).
 
+## Contact information
+
+- Discord https://discord.com/invite/vechain
+- Support https://support.vechain.org
