@@ -1,0 +1,12 @@
+name: Main CI
+
+on:
+    push:
+      branches:
+        - 'main'
+        - 'main-*'
+
+jobs:
+    install-lint:
+        uses: ./.github/workflows/lint.yml
+        secrets: inherit

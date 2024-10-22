@@ -1,0 +1,11 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    install-lint:
+        uses: ./.github/workflows/lint.yml
+        secrets: inherit   
