@@ -11,7 +11,7 @@ const setSize = 1024;
 
 //  This is the size in bits of each key representing the element in the `set`.
 // You can play to poke with this number.
-const elementKeySize = 8;
+const elementKeySize = 8    ;
 
 //  The loop add `setSize` randomized value elements to `set`.
 for (let i = 0; i < setSize; i++) {
