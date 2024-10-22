@@ -7,7 +7,7 @@ const set: Uint8Array[] = [];
 
 // This is the size of `set`, hence the number of elements added to the `set` next.
 // You can play to poke with this number.
-const setSize = 1024   ;
+const setSize = 1024;
 
 //  This is the size in bits of each key representing the element in the `set`.
 // You can play to poke with this number.
