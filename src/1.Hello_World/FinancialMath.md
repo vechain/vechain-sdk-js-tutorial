@@ -330,9 +330,9 @@ precision cryptocurrency math requires.
 ### Limit Challenge
 
 The `FixedPointNumber` class works as the JS `number` does to approximate the results at the limits.
-the following examples computes the most classic limits of the division, by zero, by infinity and between zero arguments.
+The following examples computes the most classic limits of the division, by zero, by infinity and between zero arguments.
 
-```text
+```typescript
 // START-SNIPPET: FinancialMath_5
 // STEP 9: compute the divisions by zero, infinity and between zeros.
 r = x.div(FixedPointNumber.ZERO);
@@ -343,7 +343,7 @@ r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
 console.log(`0/0 = is ${r}`);
 ```
 
-printing, whatever is the last value of `x`
+Whatever is the last value of `x`, the code prints
 
 ```text
 2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/0 = Infinity
