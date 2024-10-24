@@ -80,6 +80,6 @@ console.log(`${x}/0 = ${r}`);
 r = x.div(FixedPointNumber.of(Infinity));
 console.log(`${x}/infinity = ${r}`);
 r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
-console.log(`0/0 = is ${r}`);
+console.log(`0/0 = ${r}`);
 
 // END-SNIPPET: FinancialMath_5
