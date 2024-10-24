@@ -3,7 +3,7 @@
 # Financial Math
 
 JavaScript (JS) was designed as front-end language, providing the simpler data type to cope with the need
-of rendering, initially just the `string` type to express texts and `number` type to compute math.
+of rendering, initially just the `string` type to express texts and `number` and `bigint` types to compute math.
 JS was not designed to be strongly typed language, but the language was designed to delegate at runtime
 the assessment of the type to represent any variable according its content.
 When the success of JS as 'browser language' made it popular as a more general purpose language,
@@ -11,7 +11,7 @@ the need to pinpoint the data type of a variable pushed the creation of TypeScri
 as a language derived by and compatible with JS making explicit the type  definition of variables,
 and many libraries to provide specialized types to overcome the limits of JS.
 
-## Number Limits
+## Number Type Limits
 
 The JS `number` type implements the 64 bits [Double Precision Floating Point](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
 representation as the `double` type common in *C#*, *Java?Kotlin* and *Rust/Zig* programming languages.
@@ -69,6 +69,12 @@ result computed between real values returns 'repeating decimal' .3
 The VeChain SDK provides the `FixedPointNumber` class to provide an unrestricted representation of values,
 as `bigint` but supporting the concept of 'ratio' and rational numbers and allowing to define the precision
 of the approximation of irrational values.
+
+The most important characteristic of the `FixedPointNumber` class is the algorithms it provides are purely based
+on `bigint` hence the code developed using the SDK runs smoothly on any JS runtime because `bigint` type is
+a base type of the JS language.
+
+In JS there are other libraries addressing the same problem to represent with adjustable precision
 
 
 https://mikemcl.github.io/bignumber.js/
