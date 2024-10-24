@@ -46,7 +46,7 @@ for (let i = 0; i <= n; i++) {
     x = FixedPointNumber.of(i).dp(fd).sqrt();
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
-        'JS': Math.sqrt(i),
+        'JS number': Math.sqrt(i),
         'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
@@ -64,7 +64,7 @@ for (let i = 0; i <= n; i++) {
     x = FixedPointNumber.of(i).dp(fd).sqrt();
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
-        'JS': Math.sqrt(i),
+        'JS number': Math.sqrt(i),
         'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })

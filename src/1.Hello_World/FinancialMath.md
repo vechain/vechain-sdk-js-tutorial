@@ -260,7 +260,7 @@ for (let i = 0; i <= n; i++) {
     x = FixedPointNumber.of(i).dp(fd).sqrt();
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
-        'JS': Math.sqrt(i),
+        'JS number': Math.sqrt(i),
         'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
@@ -272,7 +272,7 @@ The code prints the table
 
 ```text
 ┌─────────┬────────────────────┬──────────────────────────┬──────────────────────────┐
-│ (index) │ JS                 │ BigNumber                │ SDK FixedPointNumber     │
+│ (index) │ JS number          │ BigNumber                │ SDK FixedPointNumber     │
 ├─────────┼────────────────────┼──────────────────────────┼──────────────────────────┤
 │ 0       │ 0                  │ '0'                      │ '0'                      │
 │ 1       │ 1                  │ '1'                      │ '1'                      │
@@ -305,7 +305,7 @@ for (let i = 0; i <= n; i++) {
     x = FixedPointNumber.of(i).dp(fd).sqrt();
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
-        'JS': Math.sqrt(i),
+        'JS number': Math.sqrt(i),
         'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
@@ -317,7 +317,7 @@ prints
 
 ```text
 ┌─────────┬────────────────────┬──────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────┐
-│ (index) │ JS                 │ BigNumber                │ SDK FixedPointNumber                                                                 │
+│ (index) │ JS number          │ BigNumber                │ SDK FixedPointNumber                                                                 │
 ├─────────┼────────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
 │ 0       │ 0                  │ '0'                      │ '0'                                                                                  │
 │ 1       │ 1                  │ '1'                      │ '1'                                                                                  │
