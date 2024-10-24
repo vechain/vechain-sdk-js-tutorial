@@ -1,4 +1,4 @@
-## Lesson 1
+## Lesson 1 - Part 1
 
 # Hello World!
 
