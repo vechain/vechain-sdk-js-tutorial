@@ -47,7 +47,7 @@ for (let i = 0; i <= n; i++) {
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
         'JS': Math.sqrt(i),
-        'bignumber.js': `${a}`,
+        'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
 }
@@ -65,10 +65,21 @@ for (let i = 0; i <= n; i++) {
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
         'JS': Math.sqrt(i),
-        'bignumber.js': `${a}`,
+        'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
 }
 console.table(rows);
 
-// END-SNIPPET: FinancialMath_3
+// END-SNIPPET: FinancialMath_4
+
+// START-SNIPPET: FinancialMath_5
+// STEP 9: compute the divisions by zero, infinity and between zeros.
+r = x.div(FixedPointNumber.ZERO);
+console.log(`${x}/0 = ${r}`);
+r = x.div(FixedPointNumber.of(Infinity));
+console.log(`${x}/infinity = ${r}`);
+r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
+console.log(`0/0 = is ${r}`);
+
+// END-SNIPPET: FinancialMath_5

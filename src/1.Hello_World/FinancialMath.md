@@ -7,7 +7,7 @@ of rendering, initially just the `string` type to express texts and `number` and
 JS was not designed to be strongly typed language, but the language was designed to delegate at runtime
 the assessment of the type to represent any variable according its content.
 When the success of JS as 'browser language' made it popular as a more general purpose language,
-the need to pinpoint the data type of a variable pushed the creation of TypeScript (TS)
+the need to pinpoint the data type of variable pushed the creation of TypeScript (TS)
 as a language derived by and compatible with JS making explicit the type definition of variables,
 and many libraries to provide specialized types to overcome the limits of JS.
 
@@ -155,6 +155,8 @@ console.log(`Cast FPN value to number is ${x.n}.`);
 console.log(`Cast FPN value to bigint is ${x.bi}.`);
 ```
 
+### Division Challenge
+
 The arithmetic of the `FixedPointNumber` class is trivial for addition, subtraction and multiplication, the game
 becomes interesting when the division is involved. Recalling the well known ratio 1/3, the result of the division
 between `bigint` is zero and from above explanation, we know the object represents the internal operand as integers.
@@ -234,6 +236,8 @@ The code prints
 because **bignumber.js** approximation algorithm converge to 0.33333333333333328889 followed by not meaningful zeros.
 The `FixedPointNumber` is more accurate regarding divisions.
 
+### Square Root Challenge
+
 The next example computes the square root on few natural numbers, let's see how JS, **bignumber.js** and
 `FixedPointNumber`  class behave.
 
@@ -247,7 +251,7 @@ for (let i = 0; i <= n; i++) {
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
         'JS': Math.sqrt(i),
-        'bignumber.js': `${a}`,
+        'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
 }
@@ -258,7 +262,7 @@ The code prints the table
 
 ```text
 ┌─────────┬────────────────────┬──────────────────────────┬──────────────────────────┐
-│ (index) │ JS                 │ bignumber.js             │ SDK FixedPointNumber     │
+│ (index) │ JS                 │ BigNumber                │ SDK FixedPointNumber     │
 ├─────────┼────────────────────┼──────────────────────────┼──────────────────────────┤
 │ 0       │ 0                  │ '0'                      │ '0'                      │
 │ 1       │ 1                  │ '1'                      │ '1'                      │
@@ -292,7 +296,7 @@ for (let i = 0; i <= n; i++) {
     a = BigNumber(i).dp(fd).sqrt();
     rows.push({
         'JS': Math.sqrt(i),
-        'bignumber.js': `${a}`,
+        'BigNumber': `${a}`,
         'SDK FixedPointNumber': `${x}`
     })
 }
@@ -303,7 +307,7 @@ prints
 
 ```text
 ┌─────────┬────────────────────┬──────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────┐
-│ (index) │ JS                 │ bignumber.js             │ SDK FixedPointNumber                                                                 │
+│ (index) │ JS                 │ BigNumber                │ SDK FixedPointNumber                                                                 │
 ├─────────┼────────────────────┼──────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
 │ 0       │ 0                  │ '0'                      │ '0'                                                                                  │
 │ 1       │ 1                  │ '1'                      │ '1'                                                                                  │
@@ -317,9 +321,34 @@ prints
 └─────────┴────────────────────┴──────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Note if you manually round the long SDK results to the digints printed in the **bignumber.js** result, you will get the
+Note if you manually round the long SDK results to the digits printed in the **bignumber.js** result, you will get the
 **bignumber.js** results.
 The two libraries approximate the theoretical real number results consistently but `FixedPointNumber` works
 with higher precision when instructed to do because it was designed to respect at least the 20 digits of fractional
 precision cryptocurrency math requires.
 
+### Limit Challenge
+
+The `FixedPointNumber` class works as the JS `number` does to approximate the results at the limits.
+the following examples computes the most classic limits of the division, by zero, by infinity and between zero arguments.
+
+```text
+// START-SNIPPET: FinancialMath_5
+// STEP 9: compute the divisions by zero, infinity and between zeros.
+r = x.div(FixedPointNumber.ZERO);
+console.log(`${x}/0 = ${r}`);
+r = x.div(FixedPointNumber.of(Infinity));
+console.log(`${x}/infinity = ${r}`);
+r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
+console.log(`0/0 = is ${r}`);
+```
+
+printing, whatever is the last value of `x`
+
+```text
+2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/0 = Infinity
+2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/infinity = 0
+0/0 = is NaN
+```
+
+as expected.
