@@ -30,13 +30,14 @@ is approximated with less precision for values very big or very small fraction, 
 Actually, IEEE-754 represents precisely values in the range ±2.23×10<sup>−308</sup> to ±1.80×10<sup>308</sup> in 16
 decimal digits comprehensive of the integer and fractional parts.
 
-It's important to anticipate due to the finite quantity of computer memory and the binary nature of electronic logic,
-computers can only represent values as polynomial expressions of powers of 2, hence any *rational** value not the result
-of a ratio between two values power of two, like **1/3* returning "zero dot an infinite string of three" (also named
-'[repeating decimal](https://en.wikipedia.org/wiki/Repeating_decimal) three')
+It's important to anticipate that due to the finite quantity of computer memory and the binary nature of electronic
+logic,
+computers can only represent values as polynomial expressions of powers of 2. Hence, any rational value not the result
+of a ratio between two values made of powers of two, like **1/3** returning "zero dot an infinite string of three" (also
+named '[repeating decimal](https://en.wikipedia.org/wiki/Repeating_decimal) three'), they
 can only be approximated. The quantity of memory to represent precisely 1/3 is infinite.
 It is worth to remember any [irrational number](https://en.wikipedia.org/wiki/Irrational_number),
-<math>\sqrt{2}</math> and π the most famous, can be only approximated in a computer architecture
+$\sqrt{2}$ and π the most famous, can be only approximated in a computer architecture
 because writing an irrational value needs an infinite number of digits.
 
 From what explained above, albeit the IEEE-754 allows to express a wide range of values, the 16 decimal digit
@@ -77,7 +78,7 @@ The most important characteristic of the `FixedPointNumber` class is the algorit
 on `bigint` hence the code developed using the SDK runs smoothly on any JS runtime because `bigint` type is
 a base type of the JS language.
 
-### FixedPointNumber Compared With 'bignumber.js' Library
+### bignumber.js comparison
 
 In JS there are other libraries addressing the same problem to represent with adjustable precision.
 Among them, it is worth to name [**bignumber.js**](https://mikemcl.github.io/bignumber.js/).
@@ -104,7 +105,16 @@ for example the value -1.234567 × 10<sup>4</sup> is represented internally as
 - **exponent** = `4`
 - **sign** = `1` (to flag a negative value).
 
-### FixedPointNumber Math
+The mention and comparison with **bignumber.js** is due because `FixedPointNumber` class doesn't implement
+the whole functionalities of the **bignumber.js** library. For example `FixedPointNumber` class supports
+the square root operation, but it doesn't support yet the power to fractional exponent (n<sup>0.5/sup> = $\sqrt{n}$).
+
+**_NOTE:_** VeChain uses and suggests to use [**bignumber.js**](https://mikemcl.github.io/bignumber.js/) 
+for the functionalities not included in the `FixedPointNumber` class. **bignuber.js** is not part of the SDK and must
+be imported explicitely in any JS/TS project using it.
+
+
+### FixedPointNumber math
 
 The `FixedPointNumber` class adopts a much simpler implementation inspired to the way the blockchain protocols,
 like Bitcoin, Ethereum and Thor represents cryptocurrencies values.
@@ -155,7 +165,7 @@ console.log(`Cast FPN value to number is ${x.n}.`);
 console.log(`Cast FPN value to bigint is ${x.bi}.`);
 ```
 
-### Division Challenge
+### Division challenge
 
 The arithmetic of the `FixedPointNumber` class is trivial for addition, subtraction and multiplication, the game
 becomes interesting when the division is involved. Recalling the well known ratio 1/3, the result of the division
@@ -236,7 +246,7 @@ The code prints
 because **bignumber.js** approximation algorithm converge to 0.33333333333333328889 followed by not meaningful zeros.
 The `FixedPointNumber` is more accurate regarding divisions.
 
-### Square Root Challenge
+### Square root challenge
 
 The next example computes the square root on few natural numbers, let's see how JS, **bignumber.js** and
 `FixedPointNumber`  class behave.
@@ -327,10 +337,11 @@ The two libraries approximate the theoretical real number results consistently b
 with higher precision when instructed to do because it was designed to respect at least the 20 digits of fractional
 precision cryptocurrency math requires.
 
-### Limit Challenge
+### Limit challenge
 
 The `FixedPointNumber` class works as the JS `number` does to approximate the results at the limits.
-The following examples computes the most classic limits of the division, by zero, by infinity and between zero arguments.
+The following examples computes the most classic limits of the division, by zero, by infinity and between zero
+arguments.
 
 ```typescript
 // START-SNIPPET: FinancialMath_5
