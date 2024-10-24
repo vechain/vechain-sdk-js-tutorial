@@ -78,7 +78,7 @@ console.table(rows);
 r = x.div(FixedPointNumber.ZERO);
 console.log(`${x}/0 = ${r}`);
 r = x.div(FixedPointNumber.of(Infinity));
-console.log(`${x}/infinity = ${r}`);
+console.log(`${x}/Infinity = ${r}`);
 r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
 console.log(`0/0 = ${r}`);
 

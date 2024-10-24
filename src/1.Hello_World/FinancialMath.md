@@ -349,7 +349,7 @@ arguments.
 r = x.div(FixedPointNumber.ZERO);
 console.log(`${x}/0 = ${r}`);
 r = x.div(FixedPointNumber.of(Infinity));
-console.log(`${x}/infinity = ${r}`);
+console.log(`${x}/Infinity = ${r}`);
 r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
 console.log(`0/0 = ${r}`);
 ```
@@ -358,7 +358,7 @@ Whatever is the last value of `x`, the code prints
 
 ```text
 2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/0 = Infinity
-2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/infinity = 0
+2.82842712474619009760337744841939615713934375075389614635335947598146495692421407/Infinity = 0
 0/0 = NaN
 ```
 
