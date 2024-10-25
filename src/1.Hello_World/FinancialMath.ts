@@ -83,3 +83,67 @@ r = x.div(FixedPointNumber.ZERO.div(FixedPointNumber.ZERO));
 console.log(`0/0 = ${r}`);
 
 // END-SNIPPET: FinancialMath_5
+
+// START-SNIPPET: FinancialMath_6
+// STEP 10: compute the simple interest reat for 10,000 currency unit at 15% for one year
+let P = 10000; // 10,000 $
+let R = 0.15; // 15% interest rate
+let N = 1; // interest accrued times per year
+let T = 1; // 1 year of investment time
+let jsA = interestWithNumberType(P, R, N, T);
+console.log(
+    `JS number            => ${P} at ${R} accrued ${N} per year for ${T} years = ${jsA} `
+);
+const bnA = interestWithBigNumberType(P, R, N, T);
+console.log(
+    `BigNumber            => ${P} at ${R} accrued ${N} per year for ${T} years = ${bnA} `
+);
+const fpA = interestWithFixedPointNumberType(P, R, N, T);
+console.log(
+    `SDK FixedPointNumber => ${P} at ${R} accrued ${N} per year for ${T} years = ${fpA} `
+);
+
+// END-SNIPPET: FinancialMath_6
+
+// START-SNIPPET: FinancialMath_Functions
+// COMPOUND INTEREST FUNCTIONS FOR DIFFERENT DATA TYPES
+function interestWithBigNumberType(
+    P: number,
+    r: number,
+    n: number,
+    t: number
+): BigNumber {
+    const _P = BigNumber(P);
+    const _r = BigNumber(r);
+    const _n = BigNumber(n);
+    const _t = BigNumber(t);
+    return BigNumber(1).plus(_r.div(n)).pow(_t.times(_n)).times(_P);
+}
+
+function interestWithFixedPointNumberType(
+    P: number,
+    r: number,
+    n: number,
+    t: number
+): FixedPointNumber {
+    const _P = FixedPointNumber.of(P);
+    const _r = FixedPointNumber.of(r);
+    const _n = FixedPointNumber.of(n);
+    const _t = FixedPointNumber.of(t);
+    return FixedPointNumber.ONE.plus(_r.div(_n))
+        .pow(_t.times(_n))
+        .times(_P);
+}
+
+function interestWithNumberType(
+    P: number,
+    r: number,
+    n: number,
+    t: number
+): number {
+    return (1 + r / n) ** (t * n) * P;
+}
+
+// END-SNIPPET: FinancialMath_Functions
+
+
