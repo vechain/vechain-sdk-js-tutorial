@@ -128,7 +128,8 @@ flowchart TD
    synchronize[[Synchronize with peers node.]]
    has_genesis_block{{Has genesis block?}}
    has_genesis_option{{Has --genesis option?}}
-   build_genesis[[Build the genesis block]]
+   read_genesis[[Read the genesis.json file.]]
+   build_genesis[[Build the genesis block.]]
    run(((Run)))
    start --> is_to_synch
    is_to_synch -->|yes|synchronize
@@ -136,7 +137,8 @@ flowchart TD
    synchronize --> has_genesis_block
    has_genesis_block -->|no|has_genesis_option
    has_genesis_block -->|yes|run
-   has_genesis_option -->|yes|build_genesis
+   has_genesis_option -->|yes|read_genesis
+   read_genesis --> build_genesis
    has_genesis_option -->|no|run
    build_genesis --> run
 ```
