@@ -81,7 +81,7 @@ two commands `start-thor-solo` and `stop-thor-solo` invoke.
 
 This is the way to start and stop **solo** suggested to follow the next lessons.
 
-## What an 'account' is?
+## What an 'account' is
 
 In Thor terminology, an external owned account is a relation between an address - created because a pair of keys
 owned by a user - and funds.
