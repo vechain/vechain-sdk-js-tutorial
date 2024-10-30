@@ -1,7 +1,12 @@
+## Lesson 4 - Part 1
+
+# Thor networks - 'mainnet', 'testnet' and 'solo'
+
 VeChain develops and provides the **[Thor](https://docs.vechain.org/core-concepts/networks)** blockchain networks.
 
 The **[mainnet](https://docs.vechain.org/core-concepts/networks/mainnet)**
 refers to the live, operational version of a blockchain network.
+
 It is the real, functioning blockchain network that is open to the public
 and used by participants to conduct actual transactions, store data, and execute smart contracts.
 
@@ -23,8 +28,7 @@ without the need to be connected to **testnet** for the development, everything 
 
 The following of this tutorial uses **Thor solo** to show how to develop software for the VeChain networks.
 
-
-[How to run a Thor solo node](https://docs.vechain.org/how-to-run-a-node/how-to-run-a-thor-solo-node)
+## [How to run a Thor 'solo' node network](https://docs.vechain.org/how-to-run-a-node/how-to-run-a-thor-solo-node)
 
 The most convenient way to run a **solo** node network is to run it in a
 **[docker](https://docs.vechain.org/how-to-run-a-node/how-to-run-a-thor-solo-node#docker-containerized-convenience)**
@@ -48,6 +52,8 @@ Once **docker** and **docker compose** or **docker desktop** - that includes **d
    docker compose -f docker-compose.thor.yml down
    ```
 
+## Start and stop Thor 'solo' with `yarn`
+
 Since you are reading this tutorial, there are excellent chances you read it to develop software with the help of the
 SDK, hence you have already installed
 - [Node.js](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs)
@@ -65,5 +71,5 @@ and stop it later typing in the shell
 yarn stop-thor-solo 
 ```
 
-
+This is the way suggested to follow the next lessons.
 
