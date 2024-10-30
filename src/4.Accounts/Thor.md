@@ -118,3 +118,23 @@ The file at `<vechain-sdk-js>/docker-compose.thor.yml` is what `yarn start-thor-
 In the following lessons of this tutorial you will play with these primordial accounts and you will transfer **balance**
 and **energy** funds from them to the accounts you will create.
 
+```mermaid
+flowchart TD
+   start((Start))
+   is_to_synch{{Sync with peer nodes?}}
+   synchronize[[Synchronize with peers node.]]
+   has_genesis_block{{Has genesis block?}}
+   has_genesis_option{{Has --genesis option?}}
+   build_genesis[[Build the genesis block]]
+   run(((Run)))
+   start --> is_to_synch
+   is_to_synch -->|yes|synchronize
+   is_to_synch -->|no| has_genesis_block
+   synchronize --> has_genesis_block
+   has_genesis_block -->|no|has_genesis_option
+   has_genesis_block -->|yes|run
+   has_genesis_option -->|yes|build_genesis
+   has_genesis_option -->|no|run
+   build_genesis --> run
+```
+
