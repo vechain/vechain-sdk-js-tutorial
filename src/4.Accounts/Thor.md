@@ -115,6 +115,8 @@ with the `--gensis` option reading how to build the genesis block from the file 
 The file at `<vechain-sdk-js>/docker-compose.thor.yml` is what `yarn start-thor-solo` invokes, the launched
 **solo** instance has ten full funded accounts.
 
+**_NOTE:_** it's worth to mention, if not evident, the code building the **genesis** block is part of Thor, not of the SDK.
+
 In the following lessons of this tutorial you will play with these primordial accounts and you will transfer **balance**
 and **energy** funds from them to the accounts you will create.
 
