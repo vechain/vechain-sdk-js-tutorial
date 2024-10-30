@@ -119,6 +119,9 @@ In the following lessons of this tutorial you will play with these primordial ac
 and **energy** funds from them to the accounts you will create.
 
 ```mermaid
+---
+title: Thor bootstrap
+---
 flowchart TD
    start((Start))
    is_to_synch{{Sync with peer nodes?}}
