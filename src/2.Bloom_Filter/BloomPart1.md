@@ -3,25 +3,25 @@
 # The Bloom Filter.
 
 The [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter) is an array of bytes encoding a set of elements,
-hashing each element in bits of the Bloom filter marking if the element belongs to the set originated the filter.
+hashing each element into bits of the Bloom filter to mark if the element belongs to the set that originated the filter.
 
 For any object, the Bloom filter tells if
-- the object probably belongs to the set (false positive is possible),
-- the object surely doesn't belong  to the set
+- the object probably belongs to the set (a false positive is possible),
+- the object surely doesn't belong  to the set that
   originated the filter.
 
-The advantage of the Bloom filter is to represent in a very compact form if some object is part of a data structure
+The advantage of the Bloom filter is that it can represent in a very compact form whether some object is part of a data structure that is
 expensive to query.
 
 For this lesson, some classes must be imported from the VeChain SDK core module.
 
-To show how he Bloom Filter we have to define a `set` of elements used make the Bloom Filter.
-Later we will check if any of them, is part of the filters built in this lesson.
+To show how the Bloom Filter works, we have to define a `set` of elements used to make the Bloom Filter.
+Later we will check if any of them is part of the filters built in this lesson.
 
 (The list is a subset of https://gist.github.com/fogleman/c4a1f69f34c7e8a00da8.)
 
 ```typescript
-// STEP 0: import and setup what needed.
+// STEP 0: import and setup what is needed.
 const bloomBuilder = BloomFilter.of();
 
 import {BloomFilter, Hex, Txt} from "@vechain/sdk-core";
@@ -111,7 +111,7 @@ const hexBloomFilter = bloomBuilder.build();
 ```
 
 ```typescript
-// STEP 7: print of the `key` is part of the Bloom filter made from hexadecimal expression.
+// STEP 7: print if the `key` is part of the Bloom filter made from hexadecimal expression.
 console.log(`Is "${key}" in ${Hex.of(hexBloomFilter.bytes)} filter made from hex?`);
 console.log(`${hexBloomFilter.contains(key.bytes)}`);
 ```
@@ -226,11 +226,11 @@ this is a container where to add the elements represented by the Bloom filter.
 
 But what if I have a Bloom filter, that is a byte of arrays, and the `k` or `m` parameters?
 You should know at least one of the following
-- `m`: number of bits per key, or
-- 'k': number of hashing functions used to build the filter.
+- `m`: the number of bits per key, or
+- `k`: the number of hashing functions used to build the filter.
 
-Those parameters are explained in the next lesson, however something is anticipated here, the
-class `BloomFilter` exposes both the `.bytes` and `.k` properties hence having any object representing
+We will be focusing more on those parameters in the next lesson, however something is anticipated here.
+The class `BloomFilter` exposes both the `.bytes` and `.k` properties hence having any object representing
 them in some form, you can always build a new `BloomFilter` object using its class constructor.
 
 If I have the `m` parameters `k = BloomFilter.computeBestHashFunctionsQuantity(m)`.
