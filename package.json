@@ -18,7 +18,7 @@
   "license": "MIT",
   "description": "VeChain SDK Tutorial for NodeJS.",
   "dependencies": {
-    "@vechain/sdk-network": "1.0.0-beta.32",
+    "@vechain/sdk-network": "1.0.0-rc.1",
     "bignumber.js": "^9.1.1"
   },
   "devDependencies": {
