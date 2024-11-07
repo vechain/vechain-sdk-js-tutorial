@@ -9,6 +9,7 @@ The [src](src) directory provides a list of lessons with exercises and solutions
 
 1.
    * [Hello World!](src/1.Hello_World/HelloWorld.md)
+   * [Financial Math: `FixedPointNumber` class.](src/1.Hello_World/FinancialMath.md)
 2.
    * [The Bloom filter.](src/2.Bloom_Filter/BloomPart1.md)
    * [The Bloom filter: advanced topics on `k` and `m` parameters.](src/2.Bloom_Filter/BloomPart2.md)
